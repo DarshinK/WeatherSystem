@@ -27,5 +27,14 @@ pipeline {
                 }
             }
         }
+        stage('Build Frontend') {
+            steps {
+                echo 'Building Angular Frontend...'
+                dir('frontend/weather-ui') {
+                    bat 'npm install'
+                    bat 'npm run build -- --configuration production'
+                }
+            }
+        }
     }
 }
