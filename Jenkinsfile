@@ -20,7 +20,11 @@ pipeline {
 
         stage('Build Backend') {
             steps {
-                echo 'Temporarily Skipping Build'
+                echo 'Building .NET Backend...'
+                dir('backend/WeatherSystem') {
+                    bat 'dotnet restore'
+                    bat 'dotnet build --configuration Release'
+                }
             }
         }
     }
