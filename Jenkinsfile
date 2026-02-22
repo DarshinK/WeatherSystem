@@ -17,8 +17,8 @@ pipeline {
         stage('Build Backend') {
             steps {
                 echo 'Building .NET Backend...'
-                bat 'dotnet restore backend/WeatherSystem.sln'
-                bat 'dotnet build backend/WeatherSystem.sln --configuration Release'
+                bat 'dotnet restore backend/WeatherSystem/WeatherSystem.sln'
+                bat 'dotnet build backend/WeatherSystem/WeatherSystem.sln --configuration Release'
             }
         }
 
