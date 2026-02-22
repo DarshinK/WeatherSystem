@@ -8,7 +8,12 @@ pipeline {
                 echo 'Checking out code...'
             }
         }
-
+        stage('Debug Files') {
+            steps {
+                bat 'dir'
+                bat 'dir backend'
+            }
+        }
         stage('Build Backend') {
             steps {
                 echo 'Building .NET Backend...'
