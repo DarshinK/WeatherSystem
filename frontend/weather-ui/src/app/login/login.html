@@ -1,0 +1,22 @@
+<h2>Login</h2>
+
+<input type="email" placeholder="Email" [(ngModel)]="email">
+<br><br>
+
+<input type="password" placeholder="Password" [(ngModel)]="password">
+<br><br>
+
+<button (click)="onLogin()">Login</button>
+
+<br><br>
+<button (click)="onGoogleLogin()">Sign in with Google</button>
+<p style="color:red">
+    @if(errorMessage){
+        {{ errorMessage }}
+    }
+</p>
+
+<p>
+  Don’t have an account?
+  <a routerLink="/register">Register</a>
+</p>

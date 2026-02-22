@@ -1,0 +1,14 @@
+<h2>Register</h2>
+
+<input type="email" placeholder="Email" [(ngModel)]="email">
+<br><br>
+<input type="password" placeholder="Password" [(ngModel)]="password">
+<br><br>
+<button (click)="onRegister()">Register</button>
+
+<p>{{ message }}</p>
+
+<p>
+  Already have an account?
+  <a routerLink="/login">Login</a>
+</p>

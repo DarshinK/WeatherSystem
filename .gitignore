@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Logs
+Logs/
+
+# Node
+node_modules/
+dist/
+
+# Angular
+.angular/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+appsettings.Development.json

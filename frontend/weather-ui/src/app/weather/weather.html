@@ -1,0 +1,21 @@
+<h2>Weather App</h2>
+
+<form (ngSubmit)="searchWeather()">
+  <input [(ngModel)]="city" name="city">
+  <button type="submit">Search</button>
+</form>
+
+
+<div>
+    @if(weather){
+        <h3>{{ weather.city }}</h3>
+        <p>Temperature: {{ weather.temp }} °C</p>
+        <p>Humidity: {{ weather.humidity }}%</p>
+        <p>{{ weather.description }}</p>
+    }
+</div>
+
+<p style="color:red" >
+    @if(error){{{ error }}}</p>
+
+<div id="map" style="height: 400px; margin-top: 20px;"></div>

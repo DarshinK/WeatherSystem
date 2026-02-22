@@ -1,0 +1,24 @@
+<div style="text-align: center; margin-top: 50px;">
+  <h1>Weather App</h1>
+
+  <input type="text" placeholder="Enter city"
+         [(ngModel)]="city"
+         style="padding: 8px;width: 200px;">
+
+  <button (click)="searchWeather()" style="padding: 8px 15px; margin-left: 10px;">Search</button>
+
+  <div>
+    @if (weather) {
+      <h2>{{ weather.city }}</h2>
+      <h2>Temperature: {{ weather.temp }} °C</h2>
+      <h2>Humidity: {{ weather.humidity }}%</h2>
+      <h2>Description: {{ weather.description }}</h2>
+    }
+  </div>
+
+  <div>
+    @if (error) {
+      <h2 style="color:red">{{ error }}</h2>
+    }
+  </div>
+</div>
