@@ -12,6 +12,7 @@ pipeline {
             steps {
                 bat 'dir'
                 bat 'dir backend'
+                bat 'dir backend\\WeatherSystem'
             }
         }
         stage('Build Backend') {
