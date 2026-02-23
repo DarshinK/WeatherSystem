@@ -1,9 +1,9 @@
-﻿using AuthService.Application.Interfaces;
+using AuthService.Application.Interfaces;
 using AuthService.Domain.Entities;
 using AuthService.Domain.Interfaces;
 using BCrypt.Net;
 
-namespace AuthService.Application.Services;
+namespace AuthService.Infrastructure.Services;
 
 public class AuthService : IAuthService
 {
