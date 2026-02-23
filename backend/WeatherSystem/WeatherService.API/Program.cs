@@ -9,6 +9,7 @@ using Serilog.Events;
 using System.Text;
 using WeatherService.Application.Interfaces;
 using WeatherService.Infrastructure.Data;
+using WeatherService.Infrastructure.Repositories;
 using WeatherService.Infrastructure.Services;
 
 Log.Logger = new LoggerConfiguration()
@@ -29,6 +30,7 @@ builder.Services.AddElmah<XmlFileErrorLog>(options =>
 {
     options.LogPath = "Logs/Elmah";
 });
+builder.Services.AddSingleton<IWeatherHistoryRepository, WeatherHistoryRepository>();
 builder.Services.AddDbContext<WeatherDbContext>(options =>
     options.UseSqlServer("Server=localhost;Database=WeatherDb;Trusted_Connection=True;TrustServerCertificate=True;"));
 
