@@ -52,7 +52,10 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
-
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+});
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<IWeatherService, WeatherService.Infrastructure.Services.WeatherService>();
