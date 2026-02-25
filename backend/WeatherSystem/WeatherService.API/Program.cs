@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.MongoDB;
 using System.Text;
 using WeatherService.Application.Interfaces;
 using WeatherService.Infrastructure.Data;
@@ -19,8 +20,9 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File(
         "Logs/weather-log-.txt",
-        rollingInterval: RollingInterval.Day,
+        rollingInterval: Serilog.RollingInterval.Day,
         retainedFileCountLimit: 7)
+    .WriteTo.MongoDB("mongodb://localhost:27017/LogsDb", collectionName: "AuthLogs")
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
