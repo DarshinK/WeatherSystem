@@ -16,24 +16,16 @@ pipeline {
 
         stage('Sonar Begin') {
             steps {
-                withSonarQubeEnv('SonarServer') {
-                    bat """
-                    dotnet sonarscanner begin ^
-                      /k:"WeatherApp" ^
-                      /d:sonar.host.url="%SONAR_HOST_URL%" ^
-                      /d:sonar.login="%SONAR_TOKEN%" ^
-                      /d:sonar.sources="backend,frontend"
-                    """
+                dir('backend/WeatherSystem') {
+                    withSonarQubeEnv('SonarServer') {
+                        bat """
+                        dotnet sonarscanner begin ^
+                        /k:"WeatherApp" ^
+                        /d:sonar.host.url="%SONAR_HOST_URL%" ^
+                        /d:sonar.login="%SONAR_TOKEN%"
+                        """
+                    }
                 }
-            }
-        }
-
-        stage('Debug Full Structure') {
-            steps {
-                bat 'dir'
-                bat 'dir backend'
-                bat 'dir backend\\WeatherSystem'
-                bat 'dir backend\\WeatherSystem /s'
             }
         }
 
@@ -59,11 +51,13 @@ pipeline {
 
         stage('Sonar End') {
             steps {
-                withSonarQubeEnv('SonarServer') {
-                    bat """
-                    dotnet sonarscanner end ^
-                      /d:sonar.login="%SONAR_TOKEN%"
-                    """
+                dir('backend/WeatherSystem') {
+                    withSonarQubeEnv('SonarServer') {
+                        bat """
+                        dotnet sonarscanner end ^
+                        /d:sonar.login="%SONAR_TOKEN%"
+                        """
+                    }
                 }
             }
         }
