@@ -34,7 +34,7 @@ builder.Services.AddSingleton<IWeatherHistoryRepository, WeatherHistoryRepositor
 builder.Services.AddDbContext<WeatherDbContext>(options =>
     options.UseSqlServer("Server=localhost;Database=WeatherDb;Trusted_Connection=True;TrustServerCertificate=True;"));
 
-var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
+var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!);
 
 builder.Services.AddAuthentication(options =>
 {
